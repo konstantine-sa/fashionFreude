@@ -58,14 +58,12 @@ img {
   border-color: var(--color-white-500-60);
 }
 
-.arrow {
-  position: absolute;
-}
-
 .arrowLeft {
+  position: absolute;
   right: calc(var(--base) / 1.8);
 }
 
 .arrowRight {
+  position: absolute;
   left: calc(var(--base) / 1.8);
 }

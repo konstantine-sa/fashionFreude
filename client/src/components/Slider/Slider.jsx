@@ -15,8 +15,6 @@ const Slider = () => {
     setCurrentSlide(currentSlide === 4 ? 0 : (prev) => prev + 1);
   };
 
-  console.log(currentSlide);
-
   const data = [
     "../../../public/img/hero_1.jpg",
     "../../../public/img/hero_2.jpg",
