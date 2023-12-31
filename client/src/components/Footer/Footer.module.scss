@@ -1,0 +1,76 @@
+@use "../../_scss/queries.scss" as *;
+
+.footer {
+  margin: 100px 200px 20px 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: start;
+  gap: calc(var(--base) / 1.2);
+
+  color: var(--color-gray-600);
+
+  text-align: justify;
+  font-size: calc(var(--base) * 1.2);
+}
+
+.itemTitle {
+  font-size: calc(var(--base) * 1.5);
+}
+
+// top
+.top {
+  display: flex;
+  gap: calc(var(--base) * 4.2);
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--base);
+
+  a {
+    color: var(--color-gray-600);
+  }
+}
+
+.contactsTitle {
+  font-weight: 700;
+}
+
+//   bottom
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: calc(var(--base) * 4);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--base);
+}
+
+.logo {
+  color: var(--color-blue-500-80);
+  font-size: calc(var(--base) * 1.5);
+  font-weight: 700;
+}
+
+.copyright {
+  font-size: var(--base);
+  color: var(--color-gray-600);
+}
+
+.right {
+  img {
+    width: calc(var(--base) * 21);
+  }
+}

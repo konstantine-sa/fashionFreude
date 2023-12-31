@@ -1,0 +1,15 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/safak/youtube2022.git
+	fetch = +refs/heads/react-mini:refs/remotes/origin/react-mini
+[branch "react-mini"]
+	remote = origin
+	merge = refs/heads/react-mini
+[branch "fashionfreunde"]
+	vscode-merge-base = react-mini

@@ -1,0 +1,71 @@
+@use "../../_scss/queries.scss" as *;
+
+.slider {
+  position: relative;
+  height: calc(100vh - 80px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  width: 500vw;
+  height: 100%;
+
+  transition: all 0.8s ease;
+}
+
+img {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  object-fit: cover;
+}
+
+.icons {
+  position: absolute;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  margin: auto;
+}
+
+.icon {
+  position: relative;
+  width: calc(var(--base) * 4.2);
+  height: calc(var(--base) * 4.2);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+  color: var(--color-white-500-60);
+  border: 3px solid;
+  border-color: var(--color-white-500-60);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--color-white-500);
+  border-color: var(--color-white-500);
+  transition: 0.1s ease-in-out;
+}
+
+.icon:active {
+  color: var(--color-white-500-60);
+  border-color: var(--color-white-500-60);
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrowLeft {
+  right: calc(var(--base) / 1.8);
+}
+
+.arrowRight {
+  left: calc(var(--base) / 1.8);
+}
