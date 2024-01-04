@@ -1,0 +1,52 @@
+@use "../../_scss/queries.scss" as *;
+
+.contact {
+  display: flex;
+  justify-content: center;
+
+  padding: calc(var(--base) * 1.2);
+  background-color: var(--color-blue-500);
+  color: var(--color-white-500);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+
+  input {
+    width: calc(var(--base) * 20);
+    padding: calc(var(--base) / 1.2);
+    border: none;
+    border-radius: calc(var(--base) / 2) 0 0 calc(var(--base) / 2);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    padding: calc(var(--base) / 1.2);
+    border: none;
+    border-radius: 0 calc(var(--base) / 2) calc(var(--base) / 2) 0;
+    color: var(--color-white-500);
+    background-color: var(--color-gray-600);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-gray-500);
+      color: var(--color-dark-500);
+    }
+  }
+
+  .icons {
+    display: flex;
+    gap: var(--base);
+
+    .icon:hover {
+      cursor: pointer;
+      color: var(--color-white-500-60);
+    }
+  }
+}

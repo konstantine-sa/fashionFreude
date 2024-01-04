@@ -1,1 +1,28 @@
 @use "../../_scss/queries.scss" as *;
+
+.featuredProducts {
+  margin: calc(var(--base) * 8.3) calc(var(--base) * 16.6);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--base) * 4);
+
+  h1 {
+    flex: 1;
+    text-transform: capitalize;
+  }
+
+  p {
+    flex: 2;
+    color: var(--color-gray-600);
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--base) * 4);
+}
