@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: calc(var(--base) * 1.5);
   width: calc(var(--base) * 23);
+
+  margin-bottom: calc(var(--base) * 5);
 }
 
 .image {

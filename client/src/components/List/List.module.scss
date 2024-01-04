@@ -1,0 +1,8 @@
+@use "../../_scss/queries.scss" as *;
+
+.list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
