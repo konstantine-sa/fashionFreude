@@ -4,6 +4,7 @@ import classes from "./Product.module.scss";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BalanceIcon from "@mui/icons-material/Balance";
+import ButtonBlue from "../../elements/ButtonBlue/ButtonBlue";
 
 const Product = () => {
   const images = [
@@ -57,10 +58,7 @@ const Product = () => {
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
 
-        <button className={classes.addButton}>
-          <AddShoppingCartIcon />
-          In den Warenkorb legen
-        </button>
+        <ButtonBlue label="hinzufügen" icon={<AddShoppingCartIcon />} />
 
         <div className={classes.links}>
           <div className={classes.item}>

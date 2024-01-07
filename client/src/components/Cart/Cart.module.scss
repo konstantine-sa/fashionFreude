@@ -1,0 +1,126 @@
+@use "../../_scss/queries.scss" as *;
+
+.cart {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  padding: 20px;
+  z-index: 999;
+
+  background-color: var(--color-white-500);
+  -webkit-box-shadow: -3px 4px 15px -4px #000000;
+  box-shadow: -3px 4px 15px -4px #000000;
+
+  h1 {
+    margin-bottom: 30px;
+    color: var(--color-dark-500-70);
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
+
+.closeIcon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-dark-500-70);
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  .img {
+    flex: 1;
+    height: 100px;
+    width: 80px;
+    object-fit: cover;
+  }
+
+  .details {
+    flex: 12;
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    p {
+      color: var(--color-dark-500-70);
+      margin-bottom: 10px;
+      font-size: calc(var(--base) * 1.2);
+    }
+
+    .price {
+      color: var(--color-blue-500-80);
+    }
+  }
+  .delete {
+    flex: 1;
+    color: var(--color-orange-500);
+    font-size: 25px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-orange-500-70);
+    }
+
+    &:active {
+      color: var(--color-orange-500);
+    }
+  }
+}
+
+hr {
+  width: 90%;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-dark-500-5);
+}
+
+.total {
+  display: grid;
+  grid-template-columns: 11fr 2fr 1fr;
+  justify-items: end;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 20px;
+
+  .subtotal {
+  }
+  .totalPrice {
+    font-weight: 600;
+  }
+  .eur {
+    justify-self: start;
+    margin-left: calc(var(--base) / 2);
+    font-weight: 600;
+  }
+}
+
+.reset {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  color: var(--color-orange-500);
+  font-size: calc(var(--base) * 1.2);
+  cursor: pointer;
+
+  .clearIcon {
+    font-size: calc(var(--base) * 1.2);
+  }
+
+  &:hover {
+    color: var(--color-orange-500-70);
+  }
+
+  &:active {
+    color: var(--color-orange-500);
+  }
+}

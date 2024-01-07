@@ -1,0 +1,25 @@
+@use "../../_scss/queries.scss" as *;
+.addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  gap: 16px;
+  background-color: var(--color-blue-500-80);
+  color: var(--color-white-500);
+  border: none;
+  font-size: calc(var(--base) * 1.2);
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-blue-500);
+  }
+
+  &:active {
+    background-color: var(--color-blue-500-60);
+  }
+}

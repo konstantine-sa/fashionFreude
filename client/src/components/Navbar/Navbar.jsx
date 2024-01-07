@@ -6,8 +6,13 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import classes from "./Navbar.module.scss";
+import { useState } from "react";
+import Cart from "../Cart/Cart";
+import Backdrop from "../../elements/Backdrop/Backdrop";
 
 const Navbar = () => {
+  const [cartOpened, setCartOpened] = useState(false);
+
   return (
     <nav className={classes.navbar}>
       <div className={classes.wrapper}>
@@ -79,13 +84,24 @@ const Navbar = () => {
             <FavoriteBorderOutlinedIcon />
 
             {/* cart icon */}
-            <div className={classes.cartIcon}>
+            <div
+              className={classes.cartIcon}
+              onClick={() => setCartOpened(!cartOpened)}
+            >
               <ShoppingCartOutlinedIcon />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+
+      {/* cart component render */}
+      {cartOpened && (
+        <>
+          <Cart cartOpened={cartOpened} setCartOpened={setCartOpened} />
+          <Backdrop cartOpened={cartOpened} setCartOpened={setCartOpened} />
+        </>
+      )}
     </nav>
   );
 };
