@@ -1,30 +1,43 @@
-@use "../../_scss/queries.scss" as *;
-
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 3fr fr 1fr;
+  justify-items: center;
   gap: calc(var(--base) * 1.5);
-  width: calc(var(--base) * 23);
+  min-width: calc(var(--base) * 23);
+  width: 100%; /* Добавлено для растягивания по ширине */
+  height: calc(var(--base) * 50); /* Фиксированная высота */
 
   margin-bottom: calc(var(--base) * 5);
+
+  &:hover {
+    // border: 2px solid black;
+  }
 }
 
 .image {
   position: relative;
+
   width: 100%;
-  height: calc(var(--base) * 33);
+  height: calc(
+    var(--base) * 33
+  ); /* Это значение может быть изменено по вашему усмотрению */
   overflow: hidden;
   transition: all 0.5s ease;
 
   &:hover {
+    .mainImage {
+      display: none;
+    }
+
     .secondImage {
+      display: block;
       z-index: 2;
     }
   }
 
   img {
     position: absolute;
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover;
   }
@@ -33,10 +46,14 @@
     z-index: 1;
   }
 
+  .secondImage {
+    display: none;
+  }
+
   .new {
     position: absolute;
     top: calc(var(--base) / 1.2);
-    left: calc(var(--base) / 1.2);
+    right: calc(var(--base) / 1.2);
     padding: calc(var(--base) / 1.2) calc(var(--base) / 1.2);
     background-color: var(--color-blue-500);
     color: var(--color-white-500);
@@ -47,6 +64,7 @@
 }
 
 .title {
+  text-align: center;
   font-size: calc(var(--base) * 1.5);
   font-weight: 700;
 }
