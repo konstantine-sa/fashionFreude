@@ -1,13 +1,20 @@
 .card {
-  display: grid;
-  grid-template-rows: 3fr fr 1fr;
-  justify-items: center;
-  gap: calc(var(--base) * 1.5);
-  min-width: calc(var(--base) * 23);
-  width: 100%; /* Добавлено для растягивания по ширине */
-  height: calc(var(--base) * 50); /* Фиксированная высота */
+  // display: grid;
+  // grid-template-rows: 3fr fr 1fr;
+  // justify-items: center;
+  // gap: calc(var(--base) * 1.5);
+  // min-width: calc(var(--base) * 23);
+  // width: 100%; /* Добавлено для растягивания по ширине */
+  // height: calc(var(--base) * 50); /* Фиксированная высота */
 
-  margin-bottom: calc(var(--base) * 5);
+  // margin-bottom: calc(var(--base) * 5);
+
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: start;
+  width: 344px;
+  height: 548px;
 
   &:hover {
     // border: 2px solid black;
@@ -15,14 +22,20 @@
 }
 
 .image {
+  display: flex;
+  justify-content: center;
   position: relative;
-
   width: 100%;
-  height: calc(
-    var(--base) * 33
-  ); /* Это значение может быть изменено по вашему усмотрению */
-  overflow: hidden;
-  transition: all 0.5s ease;
+  height: 450px;
+
+  // position: relative;
+
+  // width: 100%;
+  // height: calc(
+  //   var(--base) * 33
+  // );
+  // overflow: hidden;
+  // transition: all 0.5s ease;
 
   &:hover {
     .mainImage {
@@ -63,28 +76,44 @@
   }
 }
 
+.brand {
+  font-size: var(--base);
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  margin: 12px 0 6px 0;
+}
+
 .title {
   text-align: center;
   font-size: calc(var(--base) * 1.5);
-  font-weight: 700;
+  font-weight: 300;
+  margin-bottom: 18px;
 }
 
 .prices {
   display: flex;
+  align-items: center;
   gap: calc(var(--base) * 1.6);
   margin-top: 0;
+
+  line-height: normal;
 
   h3 {
     font-size: calc(var(--base) * 1.5);
   }
 }
 
-.oldPrice {
-  color: var(--color-gray-500);
-  text-decoration: line-through;
-  font-weight: 100;
+.newPrice {
+  font-size: calc(var(--base) * 1.8);
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
-.newPrice {
-  font-weight: 700;
+.oldPrice {
+  font-size: 18px;
+  font-weight: 100;
+  color: var(--color-gray-500);
+  text-decoration: line-through;
 }

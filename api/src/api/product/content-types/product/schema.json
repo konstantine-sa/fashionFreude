@@ -63,8 +63,8 @@
       "type": "enumeration",
       "enum": [
         "normal",
-        "featured",
-        "trending"
+        "Ausgewählte Produkte",
+        "Trendprodukte"
       ]
     },
     "galery": {
@@ -80,6 +80,9 @@
     },
     "oldPrice": {
       "type": "decimal"
+    },
+    "brand": {
+      "type": "string"
     }
   }
 }

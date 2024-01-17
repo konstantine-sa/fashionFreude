@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import classes from "./Card.module.scss";
 
 const Card = ({ item }) => {
-  console.log(
-    import.meta.env.VITE_UPLOAD_URL + item.attributes.img.data.attributes.url
-  );
-
   return (
     <Link to={`/product/${item.id}`} className={classes.link}>
       <div className={classes.card}>
@@ -14,36 +10,39 @@ const Card = ({ item }) => {
           <img
             src={
               import.meta.env.VITE_UPLOAD_URL +
-              item.attributes?.img?.data?.attributes?.url
+              item?.attributes?.img?.data?.attributes?.url
             }
             alt={`${item.title} photo`}
             className={classes.mainImage}
           ></img>
 
           {/* new label */}
-          {item?.attributes.isNew && (
+          {item?.attributes?.isNew && (
             <span className={classes.new}>Neuheit</span>
           )}
 
           <img
             src={
               import.meta.env.VITE_UPLOAD_URL +
-              item.attributes?.img2?.data?.attributes?.url
+              item?.attributes?.img2?.data?.attributes?.url
             }
-            alt={`${item?.attributes.title} photo`}
+            alt={`${item?.attributes?.title} photo`}
             className={classes.secondImage}
           ></img>
         </div>
 
-        <p className={classes.title}>{item?.attributes.title}</p>
+        <p className={classes.brand}>{item?.attributes?.brand}</p>
+
+        <p className={classes.title}>{item?.attributes?.title}</p>
 
         <div className={classes.prices}>
-          {item?.attributes.oldPrice ? (
-            <p className={classes.oldPrice}>{item?.attributes.oldPrice} €</p>
+          <p className={classes.newPrice}>{item?.attributes?.price} €</p>
+
+          {item?.attributes?.oldPrice ? (
+            <p className={classes.oldPrice}>{item?.attributes?.oldPrice} €</p>
           ) : (
             ""
           )}
-          <p className={classes.newPrice}>{item?.attributes.price} €</p>
         </div>
       </div>
     </Link>

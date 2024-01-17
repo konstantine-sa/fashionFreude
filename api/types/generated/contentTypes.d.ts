@@ -838,9 +838,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::sub-category.sub-category'
     >;
-    type: Attribute.Enumeration<['normal', 'featured', 'trending']>;
+    type: Attribute.Enumeration<
+      ['normal', 'Ausgew\u00E4hlte Produkte', 'Trendprodukte']
+    >;
     galery: Attribute.Media;
     oldPrice: Attribute.Decimal;
+    brand: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
