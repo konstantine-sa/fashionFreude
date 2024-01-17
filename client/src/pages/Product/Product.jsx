@@ -1,22 +1,27 @@
 import { useState } from "react";
+import useFetch from "../../hooks/useFetch";
 
 import classes from "./Product.module.scss";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BalanceIcon from "@mui/icons-material/Balance";
 import ButtonBlue from "../../elements/ButtonBlue/ButtonBlue";
+import { useParams } from "react-router-dom";
+import { convertLength } from "@mui/material/styles/cssUtils";
 
 const Product = () => {
-  const images = [
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/615qo2VmLpL._AC_SY550_.jpg",
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61nWKT0lxpL._AC_SY550_.jpg",
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71fHRjCRHrL._AC_SY550_.jpg",
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61k7PzOpm5L._AC_SY550_.jpg",
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/618oFOQ+KwL._AC_SY550_.jpg",
-  ];
-
+  // const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const id = useParams().id;
+
+  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+
+  let images = [];
+
+  data.length !== 0 ? (images = data.attributes.galery.data) : [];
+
+  console.log(images[selectedImage]?.attributes?.url);
 
   return (
     <section className={classes.product}>
@@ -26,7 +31,7 @@ const Product = () => {
           {images?.map((image, index) => (
             <img
               key={index}
-              src={image}
+              src={import.meta.env.VITE_UPLOAD_URL + image.attributes.url}
               alt=""
               onClick={() => setSelectedImage(index)}
               className={index === selectedImage ? classes.selected : ""}
@@ -35,7 +40,13 @@ const Product = () => {
         </div>
 
         <div className={classes.mainImage}>
-          <img src={images[selectedImage]} alt="" />
+          <img
+            src={
+              import.meta.env.VITE_UPLOAD_URL +
+              images[selectedImage]?.attributes?.url
+            }
+            alt=""
+          />
         </div>
       </div>
 

@@ -14,9 +14,11 @@ const FeaturedProducts = ({ type, description }) => {
         <p>{description}</p>
       </div>
       <div className={classes.bottom}>
-        {data.map((item) => (
-          <Card item={item} key={item.id} />
-        ))}
+        {error
+          ? error
+          : loading
+          ? "loading"
+          : data.map((item) => <Card item={item} key={item.id} />)}
       </div>
     </section>
   );
