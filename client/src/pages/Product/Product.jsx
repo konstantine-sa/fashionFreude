@@ -21,7 +21,11 @@ const Product = () => {
 
   data.length !== 0 ? (images = data.attributes.galery.data) : [];
 
-  console.log(images[selectedImage]?.attributes?.url);
+  console.log(data);
+
+  console.log(
+    "Type: " + data?.attributes?.sub_categories?.data[0]?.attributes?.title
+  );
 
   return (
     <section className={classes.product}>
@@ -52,13 +56,25 @@ const Product = () => {
 
       {/* right section */}
       <div className={classes.right}>
-        <h1>Title</h1>
-        <span className={classes.price}>100 €</span>
-        <p className={classes.description}>
-          Ezcosplay Rundhalsausschnitt Langarm Buchstaben bedrucktes Shirt
-          Grafik Tee Tops für Frauen
+        <p className={classes.brandName}>
+          <span>Marke: </span>
+          {data?.attributes?.brand}
         </p>
 
+        <h1 className={classes.title}>{data?.attributes?.title}</h1>
+
+        <div className={classes.priceContainer}>
+          <span className={classes.price}>{data?.attributes?.price} €</span>
+
+          {data?.attributes?.oldPrice ? (
+            <span className={classes.priceOld}>
+              {data?.attributes?.oldPrice} €
+            </span>
+          ) : (
+            ""
+          )}
+        </div>
+        <p className={classes.description}>{data?.attributes?.desc}</p>
         <div className={classes.quantity}>
           <button
             onClick={() => setQuantity((prev) => (prev > 0 ? prev - 1 : prev))}
@@ -68,9 +84,7 @@ const Product = () => {
           <span>{quantity}</span>
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-
-        <ButtonBlue label="hinzufügen" icon={<AddShoppingCartIcon />} />
-
+        <ButtonBlue label="in den warenkorb" icon={<AddShoppingCartIcon />} />
         <div className={classes.links}>
           <div className={classes.item}>
             <FavoriteBorderIcon /> Zur Wunschliste hinzufügen
@@ -81,19 +95,28 @@ const Product = () => {
             Zum Vergleich hinzufügen
           </div>
         </div>
-
         <div className={classes.info}>
-          <span>Anbieter: Ezcosplay </span>
-          <span>Produkttyp: T-Shirt</span>
-          <span>Tag: T-Shirt, Damen, Oberteil</span>
+          <span className={classes.seller}>
+            Anbieter: {data?.attributes?.brand}{" "}
+          </span>
+          <span className={classes.productType}>
+            {`Produkttyp: 
+            ${data?.attributes?.sub_categories?.data[0]?.attributes?.title}`}
+          </span>
         </div>
         <hr />
         <div className={classes.info}>
-          <span>Beschreibung</span>
-          <hr />
-          <span>Zusätzliche Informationen</span>
-          <hr />
-          <span>Häufig gestellte Fragen (FAQ)</span>
+          <h3>Über diesen Artikel</h3>
+          <div className={classes.aboutItem}>
+            <ul>
+              {data?.attributes?.aboutItem
+                ?.split("\n")
+                .filter((sentence) => sentence.trim() !== "")
+                .map((sentence, index) => (
+                  <li key={index}>{sentence.trim().replace(/^(-\s*)/, "")}</li>
+                ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

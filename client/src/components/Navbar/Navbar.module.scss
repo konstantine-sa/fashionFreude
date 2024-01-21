@@ -24,15 +24,15 @@
   display: flex;
   justify-items: center;
   gap: calc(var(--base) * 1.2);
+
+  font-size: 30px;
+  text-transform: uppercase;
 }
 
 .center {
   display: flex;
   justify-items: center;
   gap: calc(var(--base) * 1.2);
-
-  font-size: 30px;
-  text-transform: uppercase;
 }
 
 .right {
@@ -57,8 +57,8 @@
 
     span {
       position: absolute;
-      right: calc(var(--base) / 1.2);
-      top: calc(var(--base) / 1.2);
+      left: calc(var(--base));
+      bottom: calc(var(--base) * 1.5);
       display: flex;
       align-items: center;
       justify-content: center;

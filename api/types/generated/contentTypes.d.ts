@@ -844,6 +844,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     galery: Attribute.Media;
     oldPrice: Attribute.Decimal;
     brand: Attribute.String;
+    aboutItem: Attribute.RichText & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

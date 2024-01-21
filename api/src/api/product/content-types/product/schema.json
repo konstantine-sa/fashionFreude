@@ -83,6 +83,10 @@
     },
     "brand": {
       "type": "string"
+    },
+    "aboutItem": {
+      "type": "richtext",
+      "required": true
     }
   }
 }

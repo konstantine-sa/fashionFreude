@@ -18,18 +18,13 @@ const Navbar = () => {
       <div className={classes.wrapper}>
         {/* Nav left */}
         <div className={classes.left}>
-          <div className={classes.item}>
-            <img
-              src="/img/en-de.png"
-              alt="english to german language image"
-              className={classes.langImg}
-            />
-            <KeyboardArrowDownIcon />
-          </div>
-          <div className={classes.item}>
-            <span>EUR</span>
-            <KeyboardArrowDownIcon />
-          </div>
+          <Link className={classes.link} to="/">
+            Fashion Freunde
+          </Link>
+        </div>
+
+        {/* Nav center */}
+        <div className={classes.center}>
           <div className={classes.item}>
             <Link className={classes.link} to="/products/1">
               Damen
@@ -47,13 +42,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Nav center */}
-        <div className={classes.center}>
-          <Link className={classes.link} to="/">
-            Fashion Freunde
-          </Link>
-        </div>
-
         {/* Nav right */}
         <div className={classes.right}>
           <div className={classes.item}>
@@ -69,11 +57,6 @@ const Navbar = () => {
           <div className={classes.item}>
             <Link className={classes.link} to="/">
               Kontakt
-            </Link>
-          </div>
-          <div className={classes.item}>
-            <Link className={classes.link} to="/">
-              Filialen
             </Link>
           </div>
 

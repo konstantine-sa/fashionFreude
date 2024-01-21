@@ -9,8 +9,6 @@ const List = ({ catId, subCats, maxPrice, sort }) => {
     )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
   );
 
-  console.log(data);
-
   return (
     <div className={classes.list}>
       {loading
