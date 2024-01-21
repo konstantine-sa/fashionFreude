@@ -8,11 +8,13 @@ import BalanceIcon from "@mui/icons-material/Balance";
 import ButtonBlue from "../../elements/ButtonBlue/ButtonBlue";
 import { useParams } from "react-router-dom";
 import { convertLength } from "@mui/material/styles/cssUtils";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/CartReducer";
 
 const Product = () => {
-  // const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const dispatch = useDispatch();
   const id = useParams().id;
 
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
@@ -20,12 +22,6 @@ const Product = () => {
   let images = [];
 
   data.length !== 0 ? (images = data.attributes.galery.data) : [];
-
-  console.log(data);
-
-  console.log(
-    "Type: " + data?.attributes?.sub_categories?.data[0]?.attributes?.title
-  );
 
   return (
     <section className={classes.product}>
@@ -84,7 +80,22 @@ const Product = () => {
           <span>{quantity}</span>
           <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
         </div>
-        <ButtonBlue label="in den warenkorb" icon={<AddShoppingCartIcon />} />
+        <ButtonBlue
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: data.id,
+                title: data.attributes.title,
+                desc: data.attributes.desc,
+                price: data.attributes.price,
+                img: data.attributes.img.data.attributes.url,
+                quantity,
+              })
+            )
+          }
+          label="in den warenkorb"
+          icon={<AddShoppingCartIcon />}
+        />
         <div className={classes.links}>
           <div className={classes.item}>
             <FavoriteBorderIcon /> Zur Wunschliste hinzufügen

@@ -1,8 +1,8 @@
 import classes from "./ButtonBlue.module.scss";
 
-const ButtonBlue = ({ label, icon }) => {
+const ButtonBlue = ({ label, icon, onClick }) => {
   return (
-    <button className={classes.addButton}>
+    <button className={classes.addButton} onClick={onClick}>
       {icon}
       {label}
     </button>
