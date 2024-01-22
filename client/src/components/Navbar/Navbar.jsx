@@ -9,8 +9,10 @@ import classes from "./Navbar.module.scss";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
 import Backdrop from "../../elements/Backdrop/Backdrop";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const products = useSelector((state) => state.cart.products);
   const [cartOpened, setCartOpened] = useState(false);
 
   return (
@@ -37,7 +39,7 @@ const Navbar = () => {
           </div>
           <div className={classes.item}>
             <Link className={classes.link} to="/products/3">
-              Kinder
+              Sales
             </Link>
           </div>
         </div>
@@ -72,7 +74,7 @@ const Navbar = () => {
               onClick={() => setCartOpened(!cartOpened)}
             >
               <ShoppingCartOutlinedIcon />
-              <span>0</span>
+              <span>{products.length}</span>
             </div>
           </div>
         </div>

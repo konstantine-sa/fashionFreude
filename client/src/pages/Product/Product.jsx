@@ -13,7 +13,7 @@ import { addToCart } from "../../redux/CartReducer";
 
 const Product = () => {
   const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const id = useParams().id;
 
