@@ -34,6 +34,13 @@ const Cart = ({ cartOpened, setCartOpened }) => {
     dispatch(addToCart({ id: itemId, quantity: 1 }));
   };
 
+  const handlePayment = async () => {
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className={classes.cart}>
       {products.length > 0 ? (
@@ -102,7 +109,7 @@ const Cart = ({ cartOpened, setCartOpened }) => {
             <Link to="/products/1">
               <ButtonBlue
                 label="Jetzt einkaufen"
-                onClick={() => setCartOpened(!cartOpened)}
+                onClick={() => handlePayment}
               />
             </Link>
           </div>
