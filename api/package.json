@@ -19,7 +19,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "redux": "^4.2.1",
-    "stripe": "^14.13.0",
+    "stripe": "^14.14.0",
     "styled-components": "5.3.3"
   },
   "author": {

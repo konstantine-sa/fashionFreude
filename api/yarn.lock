@@ -3793,7 +3793,7 @@ __metadata:
     react-dom: ^18.0.0
     react-router-dom: 5.3.4
     redux: ^4.2.1
-    stripe: ^14.13.0
+    stripe: ^14.14.0
     styled-components: 5.3.3
   languageName: unknown
   linkType: soft
@@ -12100,13 +12100,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stripe@npm:^14.13.0":
-  version: 14.13.0
-  resolution: "stripe@npm:14.13.0"
+"stripe@npm:^14.14.0":
+  version: 14.14.0
+  resolution: "stripe@npm:14.14.0"
   dependencies:
     "@types/node": ">=8.1.0"
     qs: ^6.11.0
-  checksum: 6292563458b178cd15efd8e1342d17a761379dd2b62cec2ce277095bccf71078ebb7e5d76039d0df8a38744e0b9da72231cbc836a1729c6770a5283a5885e512
+  checksum: fbf63a47122649875cbda5d12ce598222552f35de14afd3fb02d8caad9fd422c02bbdf99b38a8f0c270051c0f033d0a334adbb154b7c6fee3bcaff40ff6a99ed
   languageName: node
   linkType: hard
 
