@@ -1,14 +1,6 @@
+@use "../../_scss/queries.scss" as *;
+
 .card {
-  // display: grid;
-  // grid-template-rows: 3fr fr 1fr;
-  // justify-items: center;
-  // gap: calc(var(--base) * 1.5);
-  // min-width: calc(var(--base) * 23);
-  // width: 100%; /* Добавлено для растягивания по ширине */
-  // height: calc(var(--base) * 50); /* Фиксированная высота */
-
-  // margin-bottom: calc(var(--base) * 5);
-
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -16,8 +8,9 @@
   width: 344px;
   height: 548px;
 
-  &:hover {
-    // border: 2px solid black;
+  @include mid-break {
+    width: 230px;
+    height: 365px;
   }
 }
 
@@ -26,16 +19,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 450px;
-
-  // position: relative;
-
-  // width: 100%;
-  // height: calc(
-  //   var(--base) * 33
-  // );
-  // overflow: hidden;
-  // transition: all 0.5s ease;
+  height: 100%;
 
   &:hover {
     .mainImage {
@@ -83,13 +67,21 @@
   text-transform: uppercase;
   color: var(--color-gray-600);
   margin: 12px 0 6px 0;
+
+  @include mid-break {
+    font-size: 12px;
+  }
 }
 
 .title {
-  text-align: center;
+  text-align: start;
   font-size: calc(var(--base) * 1.5);
   font-weight: 300;
   margin-bottom: 18px;
+
+  @include mid-break {
+    font-size: 16px;
+  }
 }
 
 .prices {
@@ -109,6 +101,10 @@
   font-size: calc(var(--base) * 1.8);
   font-weight: 500;
   text-transform: uppercase;
+
+  @include mid-break {
+    font-size: 18px;
+  }
 }
 
 .oldPrice {
@@ -116,4 +112,8 @@
   font-weight: 100;
   color: var(--color-gray-500);
   text-decoration: line-through;
+
+  @include mid-break {
+    font-size: 16px;
+  }
 }

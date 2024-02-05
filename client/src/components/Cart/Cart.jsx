@@ -128,7 +128,7 @@ const Cart = ({ cartOpened, setCartOpened }) => {
             <Link to="/products/1">
               <ButtonBlue
                 label="Jetzt einkaufen"
-                onClick={() => console.log("to finish this handle")}
+                onClick={() => setCartOpened(!cartOpened)}
               />
             </Link>
           </div>

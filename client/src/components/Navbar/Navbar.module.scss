@@ -1,11 +1,15 @@
 @use "../../_scss/queries.scss" as *;
 
 .navbar {
+  position: fixed;
   display: flex;
+  width: 100%;
   height: calc(var(--base) * 6.6);
+  background-color: var(--color-white-500);
+  z-index: 99;
 }
 
-.wrapper {
+.desktopNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +17,11 @@
   padding: calc(var(--base) / 1.2) calc(var(--base) * 2.5);
 
   font-size: calc(var(--base) * 1.5);
+
+  @include large-break {
+    padding: 0;
+    margin: 0 10px;
+  }
 }
 
 .item {
@@ -20,13 +29,16 @@
   align-items: center;
 }
 
-.left {
+.logo {
   display: flex;
   justify-items: center;
-  gap: calc(var(--base) * 1.2);
 
   font-size: 30px;
   text-transform: uppercase;
+
+  @include large-break {
+    font-size: 20px;
+  }
 }
 
 .center {
@@ -39,6 +51,10 @@
   display: flex;
   justify-items: center;
   gap: calc(var(--base) * 1.2);
+
+  @include large-break {
+    padding-right: 10px;
+  }
 }
 
 .langImg {
@@ -71,5 +87,71 @@
       background-color: var(--color-orange-500);
       color: var(--color-white-500);
     }
+  }
+}
+
+.mobileContainer {
+  display: none;
+}
+
+@include small-break {
+  .desktopNav {
+    display: none;
+  }
+  .mobileContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+
+  .mobileNav {
+    position: fixed;
+    top: 0;
+    left: -230px;
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 100%;
+    background-color: white;
+    border-top-right-radius: 16px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.2s ease-in;
+  }
+
+  .active {
+    transform: translateX(104%);
+  }
+
+  .navList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 80px;
+    padding-left: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .navCategories {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+
+  .navItem:not(:first-child) {
+    margin-top: 20px;
   }
 }

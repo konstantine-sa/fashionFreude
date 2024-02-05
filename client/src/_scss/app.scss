@@ -1,15 +1,6 @@
 @use "./colors.scss" as *;
 @use "./queries.scss" as *;
 
-// .app {
-//   font-family: $fontMain;
-
-//   .link {
-//     color: inherit;
-//     text-decoration: none;
-//   }
-// }
-
 :root {
   --base: 12px;
   --font-body: "Roboto", sans-serif;
@@ -23,6 +14,7 @@ html,
 body,
 #app {
   height: 100%;
+  width: 100%;
 }
 
 body {

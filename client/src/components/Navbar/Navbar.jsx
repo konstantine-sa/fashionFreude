@@ -14,17 +14,19 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const products = useSelector((state) => state.cart.products);
   const [cartOpened, setCartOpened] = useState(false);
+  const [mobNavIsOpened, setMobNavIsOpened] = useState(false);
 
   return (
     <nav className={classes.navbar}>
-      <div className={classes.wrapper}>
-        {/* Nav left */}
-        <div className={classes.left}>
+      {/* desktop menu */}
+
+      <div className={classes.desktopNav}>
+        {/* Logo*/}
+        <div className={classes.logo}>
           <Link className={classes.link} to="/">
             Fashion Freunde
           </Link>
         </div>
-
         {/* Nav center */}
         <div className={classes.center}>
           <div className={classes.item}>
@@ -78,6 +80,43 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* mobile menu */}
+      <div className={classes.mobileContainer}>
+        <div
+          className={`${classes.mobileNav} ${
+            mobNavIsOpened ? classes.active : ""
+          }`}
+        >
+          <ul className={classes.navList}>
+            <p className={classes.title}>Categories</p>
+            <ul className={classes.navCategories}>
+              <li className={classes.navItem}>Men</li>
+              <li className={classes.navItem}>Women</li>
+              <li className={classes.navItem}>Accessories</li>
+              <li className={classes.navItem}>Shoes</li>
+              <li className={classes.navItem}>Sales</li>
+              <li className={classes.navItem}>New season</li>
+            </ul>
+
+            <p className={classes.title}>Über uns</p>
+            <p className={classes.title}>Kontakt</p>
+          </ul>
+        </div>
+
+        <div className={classes.logo}>
+          <Link className={classes.link} to="/">
+            Fashion Freunde
+          </Link>
+        </div>
+
+        <button
+          className={classes.hamburgerButton}
+          onClick={() => setMobNavIsOpened(!mobNavIsOpened)}
+        >
+          menu
+        </button>
       </div>
 
       {/* cart component render */}

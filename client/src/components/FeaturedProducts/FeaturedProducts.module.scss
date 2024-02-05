@@ -2,6 +2,10 @@
 
 .featuredProducts {
   margin: calc(var(--base) * 8.3) calc(var(--base) * 16.6);
+
+  @include mid-break {
+    margin: 40px 10px;
+  }
 }
 
 .top {
@@ -9,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: calc(var(--base) * 4);
+  padding: 0 20px;
 
   h1 {
     flex: 1;
@@ -22,7 +27,16 @@
 }
 
 .bottom {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  justify-items: center;
   gap: calc(var(--base) * 4);
+
+  @include large-break {
+  }
+
+  @include mid-break {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
