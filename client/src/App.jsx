@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 import "./_scss/app.scss";
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
 
 const Layout = () => {
   return (
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/successpage",
+        element: <SuccessPage />,
       },
     ],
   },

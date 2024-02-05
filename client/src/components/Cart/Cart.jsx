@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import classes from "./Cart.module.scss";
 import { addToCart, removeItem, resetCart } from "../../redux/CartReducer";
+import { loadStripe } from "@stripe/stripe-js";
 
 import ButtonBlue from "../../elements/ButtonBlue/ButtonBlue";
 import PaymentIcon from "@mui/icons-material/Payment";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Link } from "react-router-dom";
+import makeRequest from "../../makeRequest";
 
 const Cart = ({ cartOpened, setCartOpened }) => {
   const [totalPrice, setTotalPrice] = useState();
@@ -34,8 +36,21 @@ const Cart = ({ cartOpened, setCartOpened }) => {
     dispatch(addToCart({ id: itemId, quantity: 1 }));
   };
 
+  const stripePromise = loadStripe(
+    "pk_test_51OQZ53G2M1I8j4r5MYb9gr5dcSEwAr1cL1cOxomesjKwgEL6hYtEb9tMqeE5gr031TdW76vxdVPbvociK3Gev3UU00tvmt9bs1"
+  );
+
   const handlePayment = async () => {
     try {
+      const stripe = await stripePromise;
+
+      const res = await makeRequest.post("/orders", {
+        products,
+      });
+
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +105,11 @@ const Cart = ({ cartOpened, setCartOpened }) => {
             <span className={classes.eur}>€</span>
           </div>
 
-          <ButtonBlue label="Zur Kasse" icon={<PaymentIcon />} />
+          <ButtonBlue
+            label="Zur Kasse"
+            icon={<PaymentIcon />}
+            onClick={() => handlePayment()}
+          />
 
           <div className={classes.reset} onClick={() => dispatch(resetCart())}>
             <ClearIcon className={classes.clearIcon} />
@@ -109,7 +128,7 @@ const Cart = ({ cartOpened, setCartOpened }) => {
             <Link to="/products/1">
               <ButtonBlue
                 label="Jetzt einkaufen"
-                onClick={() => handlePayment}
+                onClick={() => console.log("to finish this handle")}
               />
             </Link>
           </div>
